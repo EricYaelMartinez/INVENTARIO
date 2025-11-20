@@ -71,38 +71,49 @@ $error = $_GET['error'] ?? '';
         
         
         <form action="procesar_registro.php" method="POST" enctype="multipart/form-data">
-            <h3>Registro de productos</h3>
-            <input type="hidden" name="action" value="insert_producto">
+            <h3><?php echo $es_edicion ? 'MODIFICAR PRODUCTO' : 'REGISTRAR PRODUCTO'; ?></h3>
+            <input type="hidden" name="action" value="<?php echo $es_edicion ? 'update_producto' : 'insert_producto'; ?>">
+            <?php if ($es_edicion): ?>
+                <input type="hidden" name="ProductoID" value="<?php echo htmlspecialchars($producto_a_editar['ProductoID']); ?>">
+            <?php endif; ?>
+
+            
         <div class="detalles-prod">
 
             <div class="input-box">
                 <span class="details">Nombre de Producto</span>
-                <input type="text" placeholder="Ingresa el nombre del producto" name="nombreP" required>
+                <input type="text" placeholder="Ingresa el nombre del producto" name="nombreP" 
+                value="<?php echo $es_edicion ? htmlspecialchars($producto_a_editar['Nombre']) : ''; ?>" required>
             </div>
 
             <div class="input-box">
                 <span class="details">Codigo de Barras</span>
-                <input type="text" placeholder="Escanea el codigo del producto" name="codigoB" required>
+                <input type="text" placeholder="Escanea el codigo del producto" name="codigoB" 
+                value="<?php echo $es_edicion ? htmlspecialchars($producto_a_editar['CodigoBarra']) : ''; ?>" required>
             </div>
 
             <div class="input-box">
                 <span class="details">Descripcion</span>
-                <input type="text" placeholder="Tamaño o peso del producto(litros, kilos)" name="desP" required>
+                <input type="text" placeholder="Tamaño o peso del producto(litros, kilos)" name="desP" 
+                value="<?php echo $es_edicion ? htmlspecialchars($producto_a_editar['Descripcion']) : ''; ?>" required>
             </div>
 
             <div class="input-box">
                 <span class="details">Precio de Venta</span>
-                <input type="text" placeholder="Precio del Producto" name="precioP" required>
+                <input type="text" placeholder="Precio del Producto" name="precioP" 
+                value="<?php echo $es_edicion ? htmlspecialchars($producto_a_editar['PrecioVenta']) : ''; ?>" required>
             </div>
 
             <div class="input-box">
                 <span class="details">Unidades Disponibles</span>
-                <input type="text" placeholder="Cantidad de producto disponible" name="stockP" required>
+                <input type="text" placeholder="Cantidad de producto disponible" name="stockP" 
+                value="<?php echo $es_edicion ? htmlspecialchars($producto_a_editar['Stock']) : ''; ?>" required>
             </div>
 
             <div class="input-box">
                 <span class="details">Unidades minimas Disponibles</span>
-                <input type="text" placeholder="Cantidad de producto minimo disponible" name="stockM" required>
+                <input type="text" placeholder="Cantidad de producto minimo disponible" name="stockM" 
+                value="<?php echo $es_edicion ? htmlspecialchars($producto_a_editar['StockMinimo']) : ''; ?>" required>
             </div>
             
 
@@ -114,12 +125,17 @@ $error = $_GET['error'] ?? '';
             <div class="input-box">
                 <span class="details">Categoria del producto</span>
                 <select name="CategoriaID" id="" required>
-                    <option value="" disabled selected>Selecciona una Categoria</option>
+                    <option value="" disabled <?php echo $es_edicion ? '' : 'selected'; ?>>Selecciona una Categoria</option>    
                     <?php if (isset($error_categorias)): ?>
                             <option value="" disabled style="color:red;"><?php echo $error_categorias; ?></option>
                         <?php else: ?>
                             <?php foreach ($categorias as $cat): ?>
-                                <option value="<?php echo htmlspecialchars($cat['CategoriaID']); ?>">
+                                <option value="<?php echo htmlspecialchars($cat['CategoriaID']); ?>"
+                                <?php 
+                                    if ($es_edicion && $producto_a_editar['CategoriaID'] == $cat ['CategoriaID']) {
+                                        echo 'selected';
+                                    } 
+                                ?>>
                                     <?php echo htmlspecialchars($cat['Nombre']); ?>
                                 </option>
                             <?php endforeach; ?>

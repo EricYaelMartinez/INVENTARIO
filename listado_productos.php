@@ -88,7 +88,7 @@ try {
                             </span>
                         </p>
                         
-                        <a href="procesar_productos.php?action=edit&id=<?php echo $producto['ProductoID']; ?>">Modificar</a> |
+                        <a href="formulario_productos.php?id=<?php echo $producto['ProductoID']; ?>">Modificar</a> |
                         <form action="../TIENDA_INV/procesar_registro.php" method="post">
                             <input type="hidden" name="action" value="delete">
                             <input type="hidden" name="ProductoID" value="<?php echo $producto['ProductoID'];?>">

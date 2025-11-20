@@ -109,6 +109,47 @@ else if ($action === 'delete') {
     header("Location: listado_productos.php?msg=" . urlencode($mensaje));
     exit();
 }
+elseif ($action === 'update_producto') {
+    $producto_id= $_POST['ProductoID'];
+    $nombre = $_POST['nombreP'];
+    $codigo_barra = $_POST['codigoB'] ?? null;
+    $descripcion = $_POST['desP'];
+    $precio_venta = $_POST['precioP'];
+    $stock = (int)$_POST['stockP'];
+    $stock_minimo = (int)$_POST['stockM'];
+    $categoria_id = (int)$_POST['CategoriaID'];
+    $imagen_url = null;
+
+    $sql = "UPDATE productos SET
+                Nombre = ?,
+                CodigoBarra = ?,
+                Descripcion = ?,
+                PrecioVenta = ?,
+                Stock = ?,
+                StockMinimo = ?,
+                CategoriaID = ?
+            WHERE  ProductoID = ?";
+
+    try{
+        $smmt = $pdo->prepare($sql);
+        $smmt->execute([
+            $nombre,
+            $codigo_barra,
+            $descripcion,
+            $precio_venta,
+            $stock,
+            $stock_minimo,
+            $categoria_id,
+            $producto_id
+        ]);
+
+        $mensaje = "Producto '{$nombre}' actualizado con exito.";
+    }catch (PDOException $e){
+        $mensaje = "Error al actualizar el producto: " . $e->getMessage();
+    }
+
+    header("Location: listado_productos.php?msg=" . urldecode($mensaje));
+}
 } else {
     // Si se accede directamente sin POST
     header("Location: procesar_registro.php");
