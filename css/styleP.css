@@ -1,0 +1,9 @@
+body { font-family: Arial, sans-serif; }
+
+.form-container { width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; }
+
+label { display: block; margin-top: 10px; font-weight: bold; }
+
+input[type="text"], input[type="number"], textarea, select { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+
+button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; margin-top: 15px; }
