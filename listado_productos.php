@@ -4,6 +4,15 @@ include_once ('conexion.php');
 
 // 1. Obtener todos los productos y sus categorías
 $productos_por_categoria = [];
+$termino_busqueda = $_GET['busqueda'] ?? '';
+$where_clause = '';
+$execute_params = [];
+
+if (!empty($termino_busqueda)){
+    $where_clause = "WHERE p.Nombre LIKE ? OR p.CodigoBarra LIKE ?";
+    $execute_params = ["%$termino_busqueda%", "%$termino_busqueda%"];
+}
+
 $sql = "
     SELECT 
         p.ProductoID, 
@@ -12,18 +21,21 @@ $sql = "
         p.PrecioVenta, 
         p.Stock, 
         p.Imagen,
+        p.CodigoBarra,
         c.Nombre AS CategoriaNombre,
         c.CategoriaID
     FROM 
         Productos p
     JOIN 
         Categorias c ON p.CategoriaID = c.CategoriaID
+    {$where_clause}
     ORDER BY 
         c.Nombre ASC, p.Nombre ASC;
 ";
 
 try {
-    $stmt = $pdo->query($sql);
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($execute_params);
     $productos = $stmt->fetchAll();
     
     // 2. Agrupar los productos por nombre de categoría para visualización
@@ -60,6 +72,26 @@ try {
 
     <h1>Inventario General de Productos</h1>
 
+    <nav>
+        <p><a href="formulario_productos.php">VOLVER AL REGISTRO DE PRODUCTOS</a></p>
+    </nav>
+
+    <form action="listado_productos.php" method="get" style="margin-bottom: 20px;">
+        <input type="text" name="busqueda" 
+           placeholder="Buscar por Nombre o Código de Barras" 
+           value="<?php echo htmlspecialchars($termino_busqueda); ?>" 
+           style="padding: 8px; width: 300px;">
+    
+    <button type="submit" style="padding: 8px 15px;">Buscar</button>
+    
+    <?php if (!empty($termino_busqueda)): ?>
+        <a href="listado_productos.php" style="margin-left: 10px; text-decoration: none;">Limpiar Búsqueda</a>
+        <p style="margin-top: 10px; font-weight: bold;">
+            Resultados para: "<?php echo htmlspecialchars($termino_busqueda); ?>"
+        </p>
+    <?php endif; ?>
+    </form>
+<hr>
     <?php if (isset($error_sql)): ?>
         <p style="color:red;"><?php echo $error_sql; ?></p>
     <?php elseif (empty($productos)): ?>
@@ -78,7 +110,7 @@ try {
                         <img src="placeholder.jpg" alt="No Image"> <?php endif; ?>
 
                     <div class="producto-info">
-                        <strong><?php echo htmlspecialchars($producto['ProductoNombre']); ?> (ID: <?php echo $producto['ProductoID']; ?>)</strong>
+                        <strong><?php echo htmlspecialchars($producto['ProductoNombre']); ?></strong>
                         <p>Descripción: <?php echo htmlspecialchars($producto['Descripcion']); ?></p>
                         <p>Precio: $<?php echo number_format($producto['PrecioVenta'], 2); ?></p>
                         

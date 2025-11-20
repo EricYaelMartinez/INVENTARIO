@@ -38,8 +38,9 @@ $nombre_usuario = $_SESSION['usuario_nombre'];
     <div class="menu">
         <a href="../TIENDA_INV/formulario_productos.php">Gestión de Productos</a>
         <a href="#">Registro de Ventas</a>
-        <a href="#">Entradas de Mercancía</a>
+        <a href="formulario_entrada.php">Entradas de Mercancía</a>
         <a href="#">Reportes y Corte de Caja</a>
+        <a href="../TIENDA_INV/formulario_proveedores.php">Proveedores</a>
     </div>
 
     ---
