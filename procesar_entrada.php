@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 2. Recoger arrays de DETALLES (se manejan como arrays en el formulario)
     $productos_ids = $_POST['productoID'];
     $cantidades = $_POST['cantidad'];
-    $costos_unitarios = $_POST['costoUnitario'];
+    $montos_totales = $_POST['montoTotal'];
 
     if (empty($productos_ids)) {
         header("Location: formulario_entrada.php?error=" . urlencode("Debe ingresar al menos un producto."));
@@ -35,9 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // 4. Iterar y procesar cada línea de DETALLE
         foreach ($productos_ids as $key => $productoID) {
             $cantidad = (int)$cantidades[$key];
-            $costo_unitario = (float)$costos_unitarios[$key];
+            $monto_total_linea = (float)$montos_totales[$key];
             
             if ($cantidad <= 0) continue; // Ignorar si la cantidad es cero o negativa
+            $costo_unitario = $monto_total_linea / $cantidad;
 
             // 4a. Insertar DETALLE en DetalleEntrada
             $sql_detalle = "INSERT INTO detalleentrada (EntradaID, ProductoID, Cantidad, CostoUnitario) 

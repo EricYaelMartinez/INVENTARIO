@@ -66,7 +66,7 @@ try {
                 <tr>
                     <th>Producto</th>
                     <th>Cantidad Recibida</th>
-                    <th>Costo Unitario</th>
+                    <th>Monto Total p/Producto</th>
                     <th>Acción</th>
                 </tr>
             </thead>
@@ -97,14 +97,19 @@ try {
 
         function calcularTotal() {
             let total = 0;
+            let totalGeneralEntrada = 0;
             const filas = document.querySelectorAll('#tablaDetalles tbody tr');
             filas.forEach(fila => {
                 const cantidad = parseFloat(fila.querySelector('[name^="cantidad"]').value) || 0;
-                const costo = parseFloat(fila.querySelector('[name^="costoUnitario"]').value) || 0;
-                total += (cantidad * costo);
+                //const costo = parseFloat(fila.querySelector('[name^="costoUnitario"]').value) || 0;
+                //total += (cantidad * costo);
+                const montoTotalProducto = parseFloat(fila.querySelector('[name^="montoTotal"]').value) || 0;
+                console.log("Monto leído de la fila:", montoTotalProducto); // <<-- AÑADE ESTA LÍNEA
+                totalGeneralEntrada += montoTotalProducto;
+                const costoUnitario = (cantidad > 0) ? (montoTotalProducto / cantidad) : 0;
             });
-            document.getElementById('totalCostoDisplay').textContent = total.toFixed(2);
-            document.getElementById('totalCostoInput').value = total.toFixed(2);
+            document.getElementById('totalCostoDisplay').textContent = totalGeneralEntrada.toFixed(2);
+            document.getElementById('totalCostoInput').value = totalGeneralEntrada.toFixed(2);
         }
 
         let contadorFila = 0;
@@ -120,7 +125,7 @@ try {
                     </select>
                 </td>
                 <td><input type="number" name="cantidad[${contadorFila}]" min="1" value="1" required onchange="calcularTotal()"></td>
-                <td><input type="number" name="costoUnitario[${contadorFila}]" step="0.01" min="0" value="0.00" required onchange="calcularTotal()"></td>
+                <td><input type="number" name="montoTotal[${contadorFila}]" step="0.01" min="0" value="0.00" required onchange="calcularTotal()"></td>
                 <td><button type="button" onclick="eliminarFila(this)">Eliminar</button></td>
             `;
             contadorFila++;

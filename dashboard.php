@@ -37,9 +37,9 @@ $nombre_usuario = $_SESSION['usuario_nombre'];
     <h2>Menú Principal</h2>
     <div class="menu">
         <a href="../TIENDA_INV/formulario_productos.php">Gestión de Productos</a>
-        <a href="#">Registro de Ventas</a>
+        <a href="../TIENDA_INV/formulario_venta.php">Registro de Ventas</a>
         <a href="formulario_entrada.php">Entradas de Mercancía</a>
-        <a href="#">Reportes y Corte de Caja</a>
+        <a href="../TIENDA_INV/formulario_corte.php">Reportes y Corte de Caja</a>
         <a href="../TIENDA_INV/formulario_proveedores.php">Proveedores</a>
     </div>
 
