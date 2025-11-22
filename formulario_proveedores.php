@@ -1,8 +1,24 @@
+<?php
+// 1. Iniciar la sesión
+session_start();
+
+// 2. Control de Acceso: Verificar si el usuario está logueado
+if (!isset($_SESSION['usuario_id'])) {
+    
+    // Si no hay sesión, redirigir al login
+    header("Location: Log_usuario.php"); 
+    exit(); // Detener la ejecución del script
+}
+
+// Si la sesión existe, el código continúa
+$nombre_usuario = $_SESSION['usuario_nombre'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../TIENDA_INV/css/formulario_proveedores.css">
     <title>Registro de Proveedores</title>
 </head>
 <body>
@@ -15,12 +31,22 @@
     }
     ?>
 
-    <nav class="nav1">
-        <li class="menu1"><a href="dashboard.php"><b>Inicio</b></a></li>
-        <li class="menu1"><a href="listado_productos.php"><b>Lista de Productos</b></a></li>
-        <li class="menu1"><a href="dashboard.php"><b>Inicia Sesion</b></a></li>
-    </nav>
+    <div class="header">
+        <div class="header-content">
+            <h1>INVENTARIO GENERAL DE PRODUCTOS</h1>
+        </div>
+        <div class="logo-container">
+            <img src="../TIENDA_INV/img/GOYITO.png" alt="Logo del Sistema" onerror="this.style.display='none'"> 
+        </div>
+    </div>
 
+    <div class="menu">
+            <a href="../TIENDA_INV/listado_entradas.php">Listado de Entradas</a>
+            <a href="formulario_entrada.php">Entradas de Mercancía</a>
+            <a href="../TIENDA_INV/formulario_corte.php">Reportes y Corte de Caja</a>
+            <a href="../TIENDA_INV/formulario_venta.php">Ventas</a>
+            <a href="../TIENDA_INV/listado_productos.php">Lista de Productos</a>
+        </div>
     <div class="contenido">
        
         <form action="registro_proveedores.php" method="post" class="form">

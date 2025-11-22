@@ -52,9 +52,25 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Corte de Caja Diario</title>
+    <link rel="stylesheet" href="../TIENDA_INV/css/formulario_corte.css">
 </head>
 <body>
-    <h1>Corte de Caja Diario</h1>
+    <div class="header">
+        <div class="header-content">
+            <h1>CORTE DE CAJA DIARIO</h1>
+        </div>
+        <div class="logo-container">
+            <img src="../TIENDA_INV/img/GOYITO.png" alt="Logo del Sistema" onerror="this.style.display='none'"> 
+        </div>
+    </div>
+
+    <div class="menu">
+        <a href="../TIENDA_INV/dashboard.php">Inicio</a>
+            <a href="../TIENDA_INV/formulario_productos.php">Gestión de Productos</a>
+            <a href="formulario_entrada.php">Entradas de Mercancía</a>
+            <a href="../TIENDA_INV/listado_productos.php">Ventas</a>
+            <a href="../TIENDA_INV/formulario_proveedores.php">Proveedores</a>
+        </div>
 
     <form method="POST" action="formulario_corte.php" style="margin-bottom: 20px;">
         <label for="fecha_seleccionada">Seleccionar Fecha del Corte:</label>
@@ -122,6 +138,8 @@ try {
             
             document.getElementById('diferenciaDisplay').textContent = diferencia.toFixed(2);
             document.getElementById('inputDiferencia').value = diferencia.toFixed(2);
+
+            display.style.color = (diferencia < 0) ? '#dc3545' : ((diferencia > 0) ? '#007bff' : 'var(--primary-dark)');
         }
 
         document.addEventListener('DOMContentLoaded', calcularEsperado); // Inicia el cálculo al cargar

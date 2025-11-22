@@ -16,9 +16,19 @@ $usuario_id = $_SESSION['usuario_id'];
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Punto de Venta (TPV)</title>
+    <title>Punto de Venta </title>
+    <link rel="stylesheet" href="../TIENDA_INV/css/formulario_venta.css">
     </head>
 <body>
+    <div class="header">
+        <div class="header-content">
+            <h1>PUNTO DE VENTAS</h1>
+        </div>
+        <div class="logo-container">
+            <img src="../TIENDA_INV/img/GOYITO.png" alt="Logo del Sistema" onerror="this.style.display='none'"> 
+        </div>
+    </div>
+
     <div class="menu">
         <a href="../TIENDA_INV/formulario_productos.php">Gestión de Productos</a>
         <a href="../TIENDA_INV/formulario_venta.php">Registro de Ventas</a>
@@ -26,7 +36,7 @@ $usuario_id = $_SESSION['usuario_id'];
         <a href="../TIENDA_INV/formulario_corte.php">Reportes y Corte de Caja</a>
         <a href="../TIENDA_INV/formulario_proveedores.php">Proveedores</a>
     </div>
-    <h1>Punto de Venta</h1>
+    <h1>Realizar Venta</h1>
     <p>Vendedor: <?php echo htmlspecialchars($_SESSION['usuario_nombre']); ?></p>
 
     <div id="tpv-container" style="display:flex;">

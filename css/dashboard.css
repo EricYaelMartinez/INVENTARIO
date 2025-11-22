@@ -1,0 +1,125 @@
+/* Paleta: #2A0308 (Oscuro), #924F1B (Marrón), #E2AC3F (Dorado), #F8EBBE (Claro), #7BA58D (Verde) */
+
+:root {
+    --primary-dark: #2A0308;
+    --accent-gold: #E2AC3F;
+    --accent-green: #7BA58D;
+    --background-light: #F8EBBE;
+    --card-bg: #FFFFFF;
+    --shadow: 0 6px 15px rgba(42, 3, 8, 0.1);
+}
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: var(--background-light); 
+    padding: 0;
+    margin: 0;
+    color: var(--primary-dark);
+}
+
+/* ---------------- HEADER & LOGO ---------------- */
+.header {
+    background-color: var(--primary-dark);
+    color: var(--background-light);
+    padding: 20px 40px;
+    box-shadow: var(--shadow);
+    border-bottom: 5px solid var(--accent-gold);
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    /* Contenido de Bienvenida */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+    color: var(--accent-gold); /* Título en color dorado */
+}
+
+.header p {
+    margin-top: 5px;
+    color: #cccccc;
+}
+
+.logo-container img {
+    height: 200px; /* Ajusta el tamaño del logo */
+    width: auto;
+}
+
+/* ---------------- CONTENEDOR PRINCIPAL ---------------- */
+.container {
+    padding: 0 40px 40px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: var(--primary-dark);
+    border-bottom: 2px solid var(--accent-gold);
+    padding-bottom: 8px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* ---------------- MENÚ DE NAVEGACIÓN ---------------- */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--primary-dark);
+    background-color: var(--background-light);
+    padding: 10px 20px;
+    border: 2px solid var(--accent-gold);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.menu a:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-dark);
+    box-shadow: 0 4px 8px rgba(226, 172, 63, 0.4);
+}
+
+/* ---------------- GRÁFICOS Y TARJETAS ---------------- */
+.charts-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.chart-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.chart-card h2 {
+    color: var(--primary-dark);
+    font-size: 18px;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+/* ---------------- CERRAR SESIÓN ---------------- */
+.logout {
+    display: block; 
+    margin-top: 40px; 
+    color: #924F1B; /* Marrón */
+    text-decoration: underline;
+    font-weight: 600;
+}

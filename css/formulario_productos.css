@@ -1,0 +1,213 @@
+/* Paleta: #2A0308 (Oscuro), #924F1B (Marrón), #E2AC3F (Dorado), #F8EBBE (Claro), #7BA58D (Verde) */
+
+:root {
+    --primary-dark: #2A0308;
+    --accent-gold: #E2AC3F;
+    --accent-green: #7BA58D;
+    --background-light: #F8EBBE;
+    --border-color: #cccccc;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: var(--background-light); 
+    color: var(--primary-dark);
+    margin: 0;
+    padding: 20px;
+}
+
+.header {
+    background-color: var(--primary-dark);
+    color: var(--background-light);
+    padding: 20px 40px;
+    box-shadow: var(--shadow);
+    border-bottom: 5px solid var(--accent-gold);
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    /* Contenido de Bienvenida */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+    color: var(--accent-gold); /* Título en color dorado */
+}
+
+.header p {
+    margin-top: 5px;
+    color: #cccccc;
+}
+
+.logo-container img {
+    height: 200px; /* Ajusta el tamaño del logo */
+    width: auto;
+}
+
+/* ---------------- NAVEGACIÓN Y TÍTULOS ---------------- */
+.nav1 {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.menu1 a {
+    text-decoration: none;
+    color: var(--primary-dark);
+    font-weight: bold;
+    padding: 8px 12px;
+    border: 1px solid var(--accent-gold);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu1 a:hover {
+    background-color: var(--accent-gold);
+    color: white;
+}
+
+.titulo {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--accent-gold);
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+h3 {
+    color: var(--primary-dark);
+    border-left: 5px solid var(--accent-green);
+    padding-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* ---------------- CONTENEDOR PRINCIPAL Y FORMULARIOS ---------------- */
+.contenido {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ---------------- FORMULARIO DE PRODUCTOS (GRID DE DOS COLUMNAS) ---------------- */
+
+.detalles-prod {
+    display: grid;
+    /* Dos columnas: el resto de campos (1fr) y la imagen/categoría (1fr) */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px 30px;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    /* Por defecto ocupa 1/2 columna */
+}
+
+/* La imagen y la categoría deberían ocupar una columna completa si es necesario */
+.img_perfil,
+.input-box:nth-child(even) { 
+    /* Podemos hacer que ciertos elementos ocupen un ancho diferente si se desea */
+}
+
+
+.details {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--primary-dark);
+}
+
+input[type="text"], 
+input[type="file"],
+input[type="number"], 
+select {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+input:focus, select:focus {
+    border-color: var(--accent-gold); /* Resalta en dorado al enfocar */
+    box-shadow: 0 0 5px rgba(226, 172, 63, 0.5);
+    background-color: white;
+    outline: none;
+}
+
+/* Estilo para la imagen de referencia actual */
+.img_perfil {
+    grid-column: span 2; /* Ocupa ambas columnas para un mejor display */
+    margin-bottom: 20px;
+    border: 1px dashed #ccc;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.img_perfil label {
+    font-weight: 600;
+    color: var(--accent-green);
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+/* ---------------- BOTONES ---------------- */
+.boton {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.boton input[type="submit"] {
+    padding: 12px 30px;
+    background-color: var(--accent-green); /* Botón en verde llamativo */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%;
+}
+
+.boton input[type="submit"]:hover {
+    background-color: #6a927a; /* Un tono más oscuro de verde al pasar el ratón */
+}
+
+/* Ajuste para formularios pequeños (Categorías) */
+.contenido form:first-of-type {
+    max-width: 500px;
+    margin: 0 auto 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Media Query para pantallas pequeñas (volver a una columna) */
+@media (max-width: 768px) {
+    .detalles-prod {
+        grid-template-columns: 1fr;
+    }
+    .img_perfil {
+        grid-column: span 1;
+    }
+    .boton input[type="submit"] {
+        width: 80%;
+    }
+}

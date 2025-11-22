@@ -1,4 +1,19 @@
 <?php
+// 1. Iniciar la sesión
+session_start();
+
+// 2. Control de Acceso: Verificar si el usuario está logueado
+if (!isset($_SESSION['usuario_id'])) {
+    
+    // Si no hay sesión, redirigir al login
+    header("Location: Log_usuario.php"); 
+    exit(); // Detener la ejecución del script
+}
+
+// Si la sesión existe, el código continúa
+$nombre_usuario = $_SESSION['usuario_nombre'];
+?>
+<?php
 // Incluye el archivo de conexión (asumiendo que define $pdo)
 include_once ('conexion.php'); 
 
@@ -59,18 +74,24 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Inventario de Productos</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        .producto-card { border: 1px solid #ccc; padding: 15px; margin-bottom: 10px; display: flex; align-items: center; }
-        .producto-card img { width: 100px; height: 100px; object-fit: cover; margin-right: 20px; border-radius: 5px; }
-        .producto-info { flex-grow: 1; }
-        h3 { border-bottom: 2px solid #007bff; padding-bottom: 5px; color: #007bff; margin-top: 25px; }
-        .stock-bajo { color: red; font-weight: bold; }
-    </style>
+    <link rel="stylesheet" href="../TIENDA_INV/css/listado_productos.css">
 </head>
 <body>
+    <div class="header">
+        <div class="header-content">
+            <h1>INVENTARIO GENERAL DE PRODUCTOS</h1>
+        </div>
+        <div class="logo-container">
+            <img src="../TIENDA_INV/img/GOYITO.png" alt="Logo del Sistema" onerror="this.style.display='none'"> 
+        </div>
+    </div>
 
-    <h1>Inventario General de Productos</h1>
+    <div class="menu">
+            <a href="../TIENDA_INV/formulario_productos.php">Gestión de Productos</a>
+            <a href="formulario_entrada.php">Entradas de Mercancía</a>
+            <a href="../TIENDA_INV/formulario_corte.php">Reportes y Corte de Caja</a>
+            <a href="../TIENDA_INV/formulario_proveedores.php">Proveedores</a>
+        </div>
 
     <nav>
         <p><a href="formulario_productos.php">VOLVER AL REGISTRO DE PRODUCTOS</a></p>

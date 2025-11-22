@@ -1,0 +1,187 @@
+/* Paleta: #2A0308 (Oscuro), #924F1B (Marrón), #E2AC3F (Dorado), #F8EBBE (Claro), #7BA58D (Verde) */
+
+:root {
+    --primary-dark: #2A0308;
+    --accent-gold: #E2AC3F;
+    --accent-green: #7BA58D;
+    --background-light: #F8EBBE;
+    --border-color: #924F1B;
+    --shadow: 0 4px 12px rgba(42, 3, 8, 0.15);
+}
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: var(--background-light); 
+    color: var(--primary-dark);
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------------- HEADER & NAVEGACIÓN ---------------- */
+
+.header {
+    background-color: var(--primary-dark);
+    color: var(--background-light);
+    padding: 20px 40px;
+    box-shadow: var(--shadow);
+    border-bottom: 5px solid var(--accent-gold);
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+    color: var(--accent-gold); 
+}
+
+.logo-container img {
+    height: 50px; 
+    width: auto;
+}
+
+.menu {
+    list-style: none;
+    padding: 10px 40px;
+    margin: -30px 0 20px;
+    display: flex;
+    gap: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--primary-dark);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.menu a:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-dark);
+}
+
+/* ---------------- CONTENEDOR PRINCIPAL ---------------- */
+
+body > form, body > h2, body > p, fieldset {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+h2 {
+    color: var(--primary-dark);
+    font-size: 24px;
+    margin-top: 30px;
+    border-bottom: 2px solid var(--accent-green);
+    padding-bottom: 5px;
+}
+
+/* ---------------- FIELDSET: Cifras del Sistema ---------------- */
+
+fieldset {
+    border: 2px solid var(--accent-gold);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    background-color: white;
+    box-shadow: var(--shadow);
+}
+
+legend {
+    color: var(--accent-gold);
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 1.2em;
+}
+
+fieldset p {
+    font-size: 1.1em;
+    padding: 5px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+/* Resaltar cifras clave */
+fieldset p strong {
+    color: var(--primary-dark);
+    font-size: 1.2em;
+}
+
+/* ---------------- FORMULARIO DE CIERRE (CÁLCULOS) ---------------- */
+
+form[action="procesar_corte.php"] {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: var(--border-color);
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border: 2px solid var(--accent-gold);
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    border-color: var(--accent-green);
+}
+
+/* ---------------- PANTALLAS DE RESULTADOS ---------------- */
+
+/* Estilo para el Monto Esperado */
+#totalEsperadoDisplay {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--accent-green); /* Destaca el total esperado en verde */
+}
+
+/* Estilo para la Diferencia (Sobrante/Faltante) */
+#diferenciaDisplay {
+    font-size: 2em;
+    font-weight: 900;
+    /* El color se actualizará automáticamente por JS/CSS basado en el signo */
+}
+
+/* Resalta la diferencia si es negativa (faltante) */
+#diferenciaDisplay:after {
+    content: attr(data-signo); /* Se puede usar JS para cambiar color si es < 0 */
+}
+
+/* ---------------- BOTÓN DE ENVÍO ---------------- */
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+    background-color: var(--primary-dark); /* Color oscuro para la acción final */
+    color: var(--background-light);
+    font-weight: bold;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #3f1a1d;
+}

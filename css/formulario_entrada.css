@@ -1,0 +1,213 @@
+/* Paleta: #2A0308 (Oscuro), #924F1B (Marrón), #E2AC3F (Dorado), #F8EBBE (Claro), #7BA58D (Verde) */
+
+:root {
+    --primary-dark: #2A0308;
+    --accent-gold: #E2AC3F;
+    --accent-green: #7BA58D;
+    --background-light: #F8EBBE;
+    --border-color: #924F1B;
+    --shadow: 0 4px 12px rgba(42, 3, 8, 0.15);
+}
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: var(--background-light); 
+    color: var(--primary-dark);
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------------- HEADER & NAVEGACIÓN ---------------- */
+
+.header {
+    background-color: var(--primary-dark);
+    color: var(--background-light);
+    padding: 20px 40px;
+    box-shadow: var(--shadow);
+    border-bottom: 5px solid var(--accent-gold);
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+    color: var(--accent-gold); 
+}
+
+.logo-container img {
+    height: 50px; 
+    width: auto;
+}
+
+.nav1 {
+    list-style: none;
+    padding: 10px 40px;
+    margin: -30px 0 20px;
+    display: flex;
+    gap: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.menu1 a {
+    text-decoration: none;
+    color: var(--primary-dark);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.menu1 a:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-dark);
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-dark);
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* ---------------- FORMULARIO Y FIELDSET ---------------- */
+
+#formEntrada {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+fieldset {
+    border: 2px solid var(--accent-green);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+legend {
+    color: var(--accent-green);
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 1.2em;
+}
+
+label {
+    display: inline-block;
+    width: 120px;
+    font-weight: 600;
+    margin-right: 15px;
+    color: #555;
+}
+
+input[type="date"], select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+input[type="date"]:focus, select:focus {
+    border-color: var(--accent-gold);
+    outline: none;
+}
+
+/* ---------------- DETALLES DE PRODUCTOS (TABLA) ---------------- */
+
+h2 {
+    color: var(--primary-dark);
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+#tablaDetalles {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#tablaDetalles th {
+    background-color: var(--primary-dark);
+    color: white;
+    padding: 10px;
+    text-align: left;
+    border: none;
+}
+
+#tablaDetalles td {
+    padding: 10px;
+    border: 1px solid #eee;
+    vertical-align: middle;
+}
+
+#tablaDetalles select, #tablaDetalles input[type="number"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 90%;
+}
+
+/* Botón de eliminar fila */
+#tablaDetalles button {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ---------------- TOTALES Y BOTONES DE ACCIÓN ---------------- */
+
+p {
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+#totalCostoDisplay {
+    color: var(--accent-gold);
+    font-size: 1.2em;
+}
+
+button[type="button"] {
+    /* Botón Agregar Producto */
+    background-color: var(--accent-green);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+button[type="button"]:hover {
+    background-color: #6a927a;
+}
+
+input[type="submit"] {
+    /* Botón Registrar Entrada */
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    background-color: var(--primary-dark); /* Color oscuro para la acción final */
+    color: var(--background-light);
+    font-weight: bold;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #3f1a1d;
+}

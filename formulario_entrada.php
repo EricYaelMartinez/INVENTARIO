@@ -1,4 +1,19 @@
 <?php
+// 1. Iniciar la sesión
+session_start();
+
+// 2. Control de Acceso: Verificar si el usuario está logueado
+if (!isset($_SESSION['usuario_id'])) {
+    
+    // Si no hay sesión, redirigir al login
+    header("Location: Log_usuario.php"); 
+    exit(); // Detener la ejecución del script
+}
+
+// Si la sesión existe, el código continúa
+$nombre_usuario = $_SESSION['usuario_nombre'];
+?>
+<?php
 include_once ('conexion.php'); 
 
 // 1. Obtener Proveedores (para el SELECT)
@@ -20,18 +35,31 @@ try {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Registro de Entrada de Mercancía</title>
+    <link rel="stylesheet" href="../TIENDA_INV/css/formulario_entrada.css">
 </head>
 <body>
+
+<div class="header">
+        <div class="header-content">
+            <h1>ENTRADAS DE MERCANCIA</h1>
+        </div>
+        <div class="logo-container">
+            <img src="../TIENDA_INV/img/GOYITO.png" alt="Logo del Sistema" onerror="this.style.display='none'"> 
+        </div>
+    </div>
 
      <nav class="nav1">
         <li class="menu1"><a href="dashboard.php"><b>Inicio</b></a></li>
         <li class="menu1"><a href="listado_productos.php"><b>Lista de Productos</b></a></li>
         <li class="menu1"><a href="listado_entradas.php"><b>Detalles de Entradas</b></a></li>
+        <li class="menu1"><a href="formulario_proveedores.php"><b>Registro de Proveedores</b></a></li>
+
     </nav>
 
     <h1>Registro de Nueva Entrada de Mercancía</h1>

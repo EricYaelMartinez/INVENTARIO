@@ -1,4 +1,19 @@
 <?php
+// 1. Iniciar la sesión
+session_start();
+
+// 2. Control de Acceso: Verificar si el usuario está logueado
+if (!isset($_SESSION['usuario_id'])) {
+    
+    // Si no hay sesión, redirigir al login
+    header("Location: Log_usuario.php"); 
+    exit(); // Detener la ejecución del script
+}
+
+// Si la sesión existe, el código continúa
+$nombre_usuario = $_SESSION['usuario_nombre'];
+?>
+<?php
 include_once ('conexion.php'); 
 
 $entradas = [];
@@ -64,18 +79,27 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Historial de Entradas de Mercancía</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        .entrada-box { border: 1px solid #007bff; margin-bottom: 30px; padding: 15px; border-radius: 5px; }
-        .entrada-header { background-color: #f0f8ff; padding: 10px; margin-bottom: 10px; border-radius: 3px; font-weight: bold; }
-        .detalle-row { padding: 5px 0; border-bottom: 1px dotted #eee; }
-        .subtotal-calc { position: fixed; bottom: 0; right: 0; width: 250px; background: #fff8e1; border-top: 2px solid #ffc107; padding: 10px; box-shadow: 0 -2px 5px rgba(0,0,0,0.1); }
-        .subtotal-calc h4 { margin-top: 0; }
-    </style>
+    <link rel="stylesheet" href="../TIENDA_INV/css/listado_entradas.css">
 </head>
 <body>
 
-    <h1>Historial de Entradas</h1>
+    <div class="header">
+        <div class="header-content">
+            <h1>HISTORIAL DE ENTRADAS</h1>
+        </div>
+        <div class="logo-container">
+            <img src="../TIENDA_INV/img/GOYITO.png" alt="Logo del Sistema" onerror="this.style.display='none'"> 
+        </div>
+    </div>
+
+     <nav class="nav1">
+        <li class="menu1"><a href="dashboard.php"><b>Inicio</b></a></li>
+        <li class="menu1"><a href="listado_productos.php"><b>Lista de Productos</b></a></li>
+        <li class="menu1"><a href="listado_entradas.php"><b>Detalles de Entradas</b></a></li>
+        <li class="menu1"><a href="formulario_proveedores.php"><b>Registro de Proveedores</b></a></li>
+
+    </nav>
+
     <p><a href="formulario_entrada.php">Registrar Nueva Entrada</a></p>
 
     <?php if ($error_sql): ?>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=p, initial-scale=1.0">
+    <link rel="stylesheet" href="../TIENDA_INV/css/R_usuarios.css">
     <title>Registro de Usuarios</title>
 </head>
 <body>
@@ -16,14 +17,14 @@
                     </div>
 
                     <div class="input-box">
-                        <span class="detail">Correo Electronico</span>
+                        <span class="details">Correo Electronico</span>
                         <input type="email" placeholder="Ingresa un Correo" name="correo" required>
                     </div>
 
-                    <dir class="input-box">
+                    <div class="input-box">
                         <span class="details">Contraseña</span>
                         <input type="password" placeholder="Crea una contraseña" name="pass" required>
-                    </dir>
+                    </div>
                 </div>
 
                 <div class="boton">

@@ -1,4 +1,19 @@
 <?php
+// 1. Iniciar la sesión
+session_start();
+
+// 2. Control de Acceso: Verificar si el usuario está logueado
+if (!isset($_SESSION['usuario_id'])) {
+    
+    // Si no hay sesión, redirigir al login
+    header("Location: Log_usuario.php"); 
+    exit(); // Detener la ejecución del script
+}
+
+// Si la sesión existe, el código continúa
+$nombre_usuario = $_SESSION['usuario_nombre'];
+?>
+<?php
 include_once ('conexion.php'); // Incluye la conexión PDO ($pdo)
 
 $producto_a_editar = null;
@@ -43,9 +58,18 @@ $error = $_GET['error'] ?? '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../TIENDA_INV/css/formulario_productos.css">
     <title>Registro de productos</title>
 </head>
 <body>
+    <div class="header">
+        <div class="header-content">
+            <h1>MISCELANEA GOYITO</h1>
+        </div>
+        <div class="logo-container">
+            <img src="../TIENDA_INV/img/GOYITO.png" alt="Logo del Sistema" onerror="this.style.display='none'"> 
+        </div>
+    </div>
     <nav class="nav1">
         <li class="menu1"><a href="dashboard.php"><b>Inicio</b></a></li>
         <li class="menu1"><a href="listado_productos.php"><b>Lista de Productos</b></a></li>

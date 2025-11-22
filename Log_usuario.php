@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../TIENDA_INV/css/Log_usuario.css">
     <title>Inicio de Sesion</title>
 </head>
 <body>
@@ -14,7 +15,8 @@
                 <input type="gmail" class="form-input" name="correo" required>
                 <label for="correo" class="form-label">Correo Electronico</label>
                 <span class="form-line"></span>
-
+            </div>
+            <div class="form-group">
                 <input type="password" class="form-input" name="pass" required>
                 <label for="pass" class="form-label">Contraseña</label>
                 <span class="form-line"></span>
@@ -23,7 +25,6 @@
             <input type="submit" class="form-submit" value="Ingresar">
 
         </div>
-
     </form>
 </body>
 </html>
