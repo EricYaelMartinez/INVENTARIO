@@ -65,12 +65,15 @@ try {
     </div>
 
     <div class="menu">
-        <a href="../TIENDA_INV/dashboard.php">Inicio</a>
-            <a href="../TIENDA_INV/formulario_productos.php">Gestión de Productos</a>
-            <a href="formulario_entrada.php">Entradas de Mercancía</a>
-            <a href="../TIENDA_INV/listado_productos.php">Ventas</a>
-            <a href="../TIENDA_INV/formulario_proveedores.php">Proveedores</a>
-        </div>
+            <a href="../TIENDA_INV/dashboard.php">Corte de Caja</a>
+            <a href="../TIENDA_INV/formulario_productos.php">Registro de Productos</a>
+            <a href="../TIENDA_INV/listado_productos.php">Lista de Productos</a>
+            <a href="../TIENDA_INV/formulario_entrada.php">Nueva Entrada</a>
+            <a href="../TIENDA_INV/listado_entradas.php">Entradas de Mercancia</a>
+            <a href="../TIENDA_INV/formulario_proveedores.php">Nuevo Proveedor</a>
+            <a href="../TIENDA_INV/formulario_venta.php">Nueva Venta</a>
+            <a href="../TIENDA_INV/listado_ventas.php">Lista de Ventas</a>
+    </div>
 
     <form method="POST" action="formulario_corte.php" style="margin-bottom: 20px;">
         <label for="fecha_seleccionada">Seleccionar Fecha del Corte:</label>

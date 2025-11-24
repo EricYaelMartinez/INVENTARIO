@@ -70,11 +70,16 @@ $error = $_GET['error'] ?? '';
             <img src="../TIENDA_INV/img/GOYITO.png" alt="Logo del Sistema" onerror="this.style.display='none'"> 
         </div>
     </div>
-    <nav class="nav1">
-        <li class="menu1"><a href="dashboard.php"><b>Inicio</b></a></li>
-        <li class="menu1"><a href="listado_productos.php"><b>Lista de Productos</b></a></li>
-        <li class="menu1"><a href="dashboard.php"><b>Inicia Sesion</b></a></li>
-    </nav>
+    <div class="menu">
+            <a href="../TIENDA_INV/dashboard.php">Registro de Productos</a>
+            <a href="../TIENDA_INV/listado_productos.php">Lista de Productos</a>
+            <a href="../TIENDA_INV/formulario_entrada.php">Nueva Entrada</a>
+            <a href="../TIENDA_INV/listado_entradas.php">Entradas de Mercancia</a>
+            <a href="../TIENDA_INV/formulario_proveedores.php">Nuevo Proveedor</a>
+            <a href="../TIENDA_INV/formulario_venta.php">Nueva Venta</a>
+            <a href="../TIENDA_INV/listado_ventas.php">Lista de Ventas</a>
+            <a href="../TIENDA_INV/formulario_corte.php">Corte de Caja</a>
+    </div>
 
     <nav class="contenido">
         <div class="titulo">Resgistro de Productos y Categorias</div>

@@ -87,10 +87,15 @@ try {
     </div>
 
     <div class="menu">
-            <a href="../TIENDA_INV/formulario_productos.php">Gestión de Productos</a>
-            <a href="formulario_entrada.php">Entradas de Mercancía</a>
-            <a href="../TIENDA_INV/formulario_corte.php">Reportes y Corte de Caja</a>
-            <a href="../TIENDA_INV/formulario_proveedores.php">Proveedores</a>
+            
+            <a href="../TIENDA_INV/dashboard.php">Lista de Productos</a>
+            <a href="../TIENDA_INV/formulario_productos.php">Registro de Productos</a>
+            <a href="../TIENDA_INV/formulario_entrada.php">Nueva Entrada</a>
+            <a href="../TIENDA_INV/listado_entradas.php">Entradas de Mercancia</a>
+            <a href="../TIENDA_INV/formulario_proveedores.php">Nuevo Proveedor</a>
+            <a href="../TIENDA_INV/formulario_venta.php">Nueva Venta</a>
+            <a href="../TIENDA_INV/listado_ventas.php">Lista de Ventas</a>
+            <a href="../TIENDA_INV/formulario_corte.php">Corte de Caja</a>
         </div>
 
     <nav>

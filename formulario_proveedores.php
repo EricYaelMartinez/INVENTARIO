@@ -33,7 +33,7 @@ $nombre_usuario = $_SESSION['usuario_nombre'];
 
     <div class="header">
         <div class="header-content">
-            <h1>INVENTARIO GENERAL DE PRODUCTOS</h1>
+            <h1>NUEVO PROVEEDOR</h1>
         </div>
         <div class="logo-container">
             <img src="../TIENDA_INV/img/GOYITO.png" alt="Logo del Sistema" onerror="this.style.display='none'"> 
@@ -41,12 +41,15 @@ $nombre_usuario = $_SESSION['usuario_nombre'];
     </div>
 
     <div class="menu">
-            <a href="../TIENDA_INV/listado_entradas.php">Listado de Entradas</a>
-            <a href="formulario_entrada.php">Entradas de Mercancía</a>
-            <a href="../TIENDA_INV/formulario_corte.php">Reportes y Corte de Caja</a>
-            <a href="../TIENDA_INV/formulario_venta.php">Ventas</a>
+            <a href="../TIENDA_INV/dashboard.php">Inicio</a>
+            <a href="../TIENDA_INV/formulario_productos.php">Registro de Productos</a>
             <a href="../TIENDA_INV/listado_productos.php">Lista de Productos</a>
-        </div>
+            <a href="../TIENDA_INV/formulario_entrada.php">Nueva Entrada</a>
+            <a href="../TIENDA_INV/listado_entradas.php">Entradas de Mercancia</a>
+            <a href="../TIENDA_INV/formulario_venta.php">Nueva Venta</a>
+            <a href="../TIENDA_INV/listado_ventas.php">Lista de Ventas</a>
+            <a href="../TIENDA_INV/formulario_corte.php">Corte de Caja</a>
+    </div>
     <div class="contenido">
        
         <form action="registro_proveedores.php" method="post" class="form">

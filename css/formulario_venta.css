@@ -47,6 +47,7 @@ body {
     padding: 10px 40px;
     margin: -30px 0 20px;
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -81,7 +82,7 @@ body > p {
 
 #tpv-container {
     display: flex;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 20px 40px;
     gap: 30px;
@@ -90,7 +91,7 @@ body > p {
 
 #scanner-area {
     /* Columna Izquierda: Búsqueda */
-    width: 35%;
+    width: 40%;
     padding: 20px;
     background-color: var(--card-bg);
     border-radius: 10px;
@@ -227,3 +228,44 @@ h3, h2 {
 #resumenPago button[type="submit"]:hover {
     background-color: #6a927a;
 }
+
+/* --- Estilos para Sugerencias de Búsqueda --- */
+
+#resultadoBusqueda {
+    position: relative; 
+}
+
+.sugerencias-lista {
+    list-style: none;
+    padding: 0;
+    margin: -10px 0 10px; /* Ajuste el margen superior para que se pegue al input */
+    position: absolute; 
+    z-index: 1000; /* Asegura que la lista flote sobre todo */
+    width: 90%; 
+    background-color: white;
+    border: 1px solid var(--accent-gold);
+    border-radius: 0 0 8px 8px; /* Redondear solo las esquinas inferiores */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.sugerencias-lista li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.95em;
+    color: var(--primary-dark);
+}
+
+.sugerencias-lista li:hover {
+    background-color: #fffaf0; 
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+ .emp{
+    color: blue;
+    font-size: 25px;
+    font-weight: bold;
+ }

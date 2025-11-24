@@ -92,13 +92,16 @@ try {
         </div>
     </div>
 
-     <nav class="nav1">
-        <li class="menu1"><a href="dashboard.php"><b>Inicio</b></a></li>
-        <li class="menu1"><a href="listado_productos.php"><b>Lista de Productos</b></a></li>
-        <li class="menu1"><a href="listado_entradas.php"><b>Detalles de Entradas</b></a></li>
-        <li class="menu1"><a href="formulario_proveedores.php"><b>Registro de Proveedores</b></a></li>
-
-    </nav>
+     <div class="menu">
+         <a href="../TIENDA_INV/dashboard.php">Inicio</a>
+            <a href="../TIENDA_INV/formulario_productos.php">Registro de Productos</a>
+            <a href="../TIENDA_INV/listado_productos.php">Lista de Productos</a>
+            <a href="../TIENDA_INV/formulario_entrada.php">Nueva Entrada</a>
+            <a href="../TIENDA_INV/formulario_proveedores.php">Nuevo Proveedor</a>
+            <a href="../TIENDA_INV/formulario_venta.php">Nueva Venta</a>
+            <a href="../TIENDA_INV/listado_ventas.php">Lista de Ventas</a>
+            <a href="../TIENDA_INV/formulario_corte.php">Corte de Caja</a>
+    </div>
 
     <p><a href="formulario_entrada.php">Registrar Nueva Entrada</a></p>
 

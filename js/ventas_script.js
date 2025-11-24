@@ -1,6 +1,67 @@
 // Este código debe ir en un archivo js/ventas_script.js o en el script tag de formulario_ventas.php
 
 let carrito = {}; // Objeto global para almacenar los productos en el carrito
+let resultadoBusqueda = {};
+
+// ------------------------------------------------------------------
+// FUNCIONES DE BÚSQUEDA Y SUGERENCIAS (NUEVAS CARACTERÍSTICAS)
+// ------------------------------------------------------------------
+
+/**
+ * Llama a la API para obtener sugerencias de productos basadas en el término de búsqueda.
+ */
+function obtenerSugerencias() {
+    console.log("EVENTO KEYUP DISPARADO")
+    const input = document.getElementById('codigoBarra');
+    const searchTerm = input.value.trim();
+    const resultadosDiv = document.getElementById('resultadoBusqueda');
+    resultadosDiv.innerHTML = ''; 
+    resultadosBusqueda = {};
+
+    // Esperar al menos 3 caracteres para iniciar la sugerencia
+    if (searchTerm.length < 2) return; 
+
+    // Llamada AJAX a la nueva API de sugerencias
+    fetch(`api_sugerencias.php?term=${searchTerm}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                const ul = document.createElement('ul');
+                ul.className = 'sugerencias-lista';
+
+                data.forEach(producto => {
+                    // Almacenar el objeto completo por ID
+                    resultadoBusqueda[producto.ProductoID] = producto;
+                    
+                    const li = document.createElement('li');
+                    li.textContent = `${producto.Nombre} ($${parseFloat(producto.PrecioVenta).toFixed(2)}) - Stock: ${producto.Stock}`;
+                    li.dataset.id = producto.ProductoID;
+                    li.onclick = seleccionarProducto;
+                    ul.appendChild(li);
+                });
+                resultadosDiv.appendChild(ul);
+            }
+        })
+        .catch(error => console.error('Error en sugerencias:', error));
+}
+
+/**
+ * Maneja la selección de un producto de la lista de sugerencias.
+ */
+function seleccionarProducto(event) {
+    const productoID = event.target.dataset.id;
+    const productoSeleccionado = resultadosBusqueda[productoID];
+    
+    if (productoSeleccionado) {
+        // Usa la función principal para agregar el producto al carrito
+        agregarProductoACarrito(productoSeleccionado);
+    }
+    
+    // Limpiar y ocultar la lista después de seleccionar
+    document.getElementById('codigoBarra').value = ''; 
+    document.getElementById('codigoBarra').focus();
+    document.getElementById('resultadoBusqueda').innerHTML = '';
+}
 
 // Función para buscar el producto (simulado con AJAX)
 function buscarProducto(event) {
@@ -19,6 +80,7 @@ function buscarProducto(event) {
             }
             document.getElementById('codigoBarra').value = ''; // Limpiar campo
             document.getElementById('codigoBarra').focus();
+            document.getElementById('resultadoBusqueda').innerHTML = '';
         })
         .catch(error => {
             console.error('Error en la búsqueda:', error);
@@ -147,4 +209,14 @@ function validarVenta() {
 }
 
 // Inicializar al cargar la página
-document.addEventListener('DOMContentLoaded', actualizarCarritoDOM);
+document.addEventListener('DOMContentLoaded', () => {
+    actualizarCarritoDOM();
+    
+    // Asignar evento 'keyup' para disparar la sugerencia al escribir
+    const inputBusqueda = document.getElementById('codigoBarra');
+    if (inputBusqueda) {
+        inputBusqueda.addEventListener('keyup', obtenerSugerencias);
+    }else{
+        console.error("Error_ Elemento 'codigoBarra' no encontrado en el DOM.");
+    }
+});

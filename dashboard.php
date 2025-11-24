@@ -37,11 +37,15 @@ $nombre_usuario = $_SESSION['usuario_nombre'];
         
         <h2>Acceso Rápido</h2>
         <div class="menu">
-            <a href="../TIENDA_INV/formulario_productos.php">Gestión de Productos</a>
-            <a href="../TIENDA_INV/formulario_venta.php">Registro de Ventas</a>
-            <a href="formulario_entrada.php">Entradas de Mercancía</a>
-            <a href="../TIENDA_INV/formulario_corte.php">Reportes y Corte de Caja</a>
-            <a href="../TIENDA_INV/formulario_proveedores.php">Proveedores</a>
+            <a href="../TIENDA_INV/formulario_productos.php">Registro de Productos</a>
+            <a href="../TIENDA_INV/listado_productos.php">Lista de Productos</a>
+            <a href="../TIENDA_INV/formulario_entrada.php">Nueva Entrada</a>
+            <a href="../TIENDA_INV/listado_entrada.php">Entradas de Mercancia</a>
+            <a href="../TIENDA_INV/formulario_proveedores.php">Nuevo Proveedor</a>
+            <a href="../TIENDA_INV/formulario_venta.php">Nueva Venta</a>
+            <a href="../TIENDA_INV/listado_ventas.php">Lista de Ventas</a>
+            <a href="../TIENDA_INV/formulario_corte.php">Corte de Caja</a>
+            <a href="../TIENDA_INV/R_usuario.php">Nuevo Usuario</a>
         </div>
 
         <h2>Análisis de Rendimiento</h2>
@@ -91,8 +95,8 @@ $nombre_usuario = $_SESSION['usuario_nombre'];
                     datasets: [{
                         label: 'Ventas Diarias ($)',
                         data: totales,
-                        backgroundColor: 'rgba(226, 172, 63, 0.7)', /* Color Dorado */
-                        borderColor: 'rgba(226, 172, 63, 1)',
+                        backgroundColor: 'rgba(162, 216, 12, 1)', /* Color Dorado */
+                        borderColor: 'rgba(162, 216, 12, 1)',
                         borderWidth: 1
                     }]
                 },

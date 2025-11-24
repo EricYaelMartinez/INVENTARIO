@@ -20,6 +20,7 @@ $usuario_id = $_SESSION['usuario_id'];
     <link rel="stylesheet" href="../TIENDA_INV/css/formulario_venta.css">
     </head>
 <body>
+
     <div class="header">
         <div class="header-content">
             <h1>PUNTO DE VENTAS</h1>
@@ -30,21 +31,25 @@ $usuario_id = $_SESSION['usuario_id'];
     </div>
 
     <div class="menu">
-        <a href="../TIENDA_INV/formulario_productos.php">Gestión de Productos</a>
-        <a href="../TIENDA_INV/formulario_venta.php">Registro de Ventas</a>
-        <a href="formulario_entrada.php">Entradas de Mercancía</a>
-        <a href="../TIENDA_INV/formulario_corte.php">Reportes y Corte de Caja</a>
-        <a href="../TIENDA_INV/formulario_proveedores.php">Proveedores</a>
+            <a href="../TIENDA_INV/dashboard.php">Inicio</a>
+            <a href="../TIENDA_INV/formulario_productos.php">Registro de Productos</a>
+            <a href="../TIENDA_INV/listado_productos.php">Lista de Productos</a>
+            <a href="../TIENDA_INV/formulario_entrada.php">Nueva Entrada</a>
+            <a href="../TIENDA_INV/listado_entradas.php">Entradas de Mercancia</a>
+            <a href="../TIENDA_INV/formulario_proveedores.php">Nuevo Proveedor</a>
+            <a href="../TIENDA_INV/listado_ventas.php">Lista de Ventas</a>
+            <a href="../TIENDA_INV/formulario_corte.php">Corte de Caja</a>
+            <a href="../TIENDA_INV/listado_ventas.php">Lista de Ventas</a>
     </div>
     <h1>Realizar Venta</h1>
-    <p>Vendedor: <?php echo htmlspecialchars($_SESSION['usuario_nombre']); ?></p>
+    <p class="emp">Vendedor: <?php echo htmlspecialchars($_SESSION['usuario_nombre']); ?></p>
 
     <div id="tpv-container" style="display:flex;">
         
         <div id="scanner-area" style="width: 30%;">
             <h3>Escanear Producto</h3>
             <form id="formBusqueda" onsubmit="buscarProducto(event)">
-                <input type="text" id="codigoBarra" placeholder="Escanear Código o teclear Nombre" autofocus required>
+                <input type="text" id="codigoBarra" name="codigoBarra" placeholder="Escanear Código o teclear Nombre" autofocus required>
                 <button type="submit" style="display:none;">Agregar</button>
                 <div id="resultadoBusqueda"></div>
             </form>
@@ -89,6 +94,6 @@ $usuario_id = $_SESSION['usuario_id'];
         </div>
     </div>
     
-    <script src="js/ventas_script.js"></script> 
+    <script src="../TIENDA_INV/js/ventas_script.js"></script> 
 </body>
 </html>

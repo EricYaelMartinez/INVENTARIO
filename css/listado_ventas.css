@@ -1,0 +1,191 @@
+/* Paleta: #2A0308 (Oscuro), #924F1B (Marrón), #E2AC3F (Dorado), #F8EBBE (Claro), #7BA58D (Verde) */
+
+:root {
+    --primary-dark: #2A0308;
+    --accent-gold: #E2AC3F;
+    --accent-green: #7BA58D;
+    --background-light: #F8EBBE;
+    --card-bg: #FFFFFF;
+    --shadow: 0 4px 12px rgba(42, 3, 8, 0.15);
+    --border-color: #924F1B;
+}
+
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: var(--background-light); 
+    color: var(--primary-dark);
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------------- HEADER & NAVEGACIÓN ---------------- */
+
+.header {
+    background-color: var(--primary-dark);
+    color: var(--background-light);
+    padding: 20px 40px;
+    box-shadow: var(--shadow);
+    border-bottom: 5px solid var(--accent-gold);
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+    color: var(--accent-gold); 
+}
+
+.logo-container img {
+    height: 50px; 
+    width: auto;
+}
+
+
+.menu {
+    list-style: none;
+    padding: 10px 40px;
+    margin: -30px 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--primary-dark);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.menu a:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-dark);
+}
+
+
+/* ---------------- FILTROS DE FECHA Y TÍTULOS ---------------- */
+
+h1 {
+    padding: 0 40px;
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: var(--primary-dark);
+}
+
+h2 {
+    padding: 0 40px;
+    color: var(--primary-dark);
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.filter-form { 
+    margin: 0 40px 25px; 
+    background: var(--card-bg); 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--border-color); /* Línea lateral marrón */
+}
+
+.filter-form label {
+    font-weight: 600;
+    color: var(--border-color);
+}
+
+.filter-form input[type="date"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 15px;
+}
+
+.filter-form button[type="submit"] {
+    padding: 8px 15px;
+    background-color: var(--accent-gold);
+    color: var(--primary-dark);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filter-form a {
+    color: var(--accent-green);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ---------------- TABLA DE VENTAS ---------------- */
+
+table { 
+    max-width: none; /* Asegura que la tabla use el ancho disponible */
+    margin: 0px 40px 40px; 
+    width: calc(100% - 80px); /* Ajuste de padding */
+    box-shadow: var(--shadow);
+    
+}
+
+th { 
+    background-color: var(--primary-dark); 
+    color: white; 
+    font-weight: 600;
+}
+
+td { 
+    vertical-align: middle;
+    margin-top: 5px;
+}
+
+tr:nth-child(even) { 
+    background-color: #fcfcfc; 
+}
+
+/* Enlace Ver Detalles */
+td a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------- ÁREA DE TOTALIZACIÓN FLOTANTE ---------------- */
+
+.total-flotante {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    padding: 15px;
+    background: var(--accent-green); /* Fondo verde para el total */
+    color: white;
+    border-top: 5px solid var(--primary-dark);
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+    border-top-left-radius: 10px;
+    text-align: center;
+}
+
+.total-flotante h4 { 
+    margin-top: 0; 
+    color: white;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 5px;
+}
+
+.total-flotante #totalSeleccionado { 
+    font-size: 2.2em; 
+    font-weight: 900; 
+    color: var(--accent-gold); /* El total destacado en dorado */
+    display: block;
+    margin-top: 10px;
+}
